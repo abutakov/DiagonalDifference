@@ -46,9 +46,7 @@ namespace DiagonalDifference
                 int[] numbers = Array.ConvertAll(tokens, int.Parse); // Converting string of integers into the int array
                 
                 for(int j = 0; j < nElements; j++)
-                {
                     matrix[i, j] = numbers[j];
-                }
             }
            
             // Calculating the diagonals 
