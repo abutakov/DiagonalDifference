@@ -16,13 +16,16 @@ namespace DiagonalDifference
         {
             int diagonalSum1 = 0,
                 diagonalSum2 = 0,
-                absoluteSum;
+                diagonalDifference;
 
             string line;
             string filename = "matrix.txt";
-            string path = Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory());
-           
-            path = path.Substring(0, path.Length - 4) + "\\" + filename;
+            string path = Path
+                .GetDirectoryName(System.IO.Directory.GetCurrentDirectory())
+                .Substring(0, Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()).Length - 4) 
+                + "\\" + filename;
+
+            //path = path.Substring(0, path.Length - 4) + "\\" + filename;
 
             StreamReader file = new StreamReader(path);
 
@@ -56,15 +59,15 @@ namespace DiagonalDifference
             }
 
             // Calculating Absolute Sum
-            absoluteSum = diagonalSum1 - diagonalSum2;
+            diagonalDifference = diagonalSum1 - diagonalSum2;
 
-            if (absoluteSum < 0)
-                absoluteSum = absoluteSum * (-1);
+            if (diagonalDifference < 0)
+                diagonalDifference = diagonalDifference * (-1);
             
             // Displaying the Results
             Console.WriteLine("Diagonal Sum 1:  " + diagonalSum1);
             Console.WriteLine("Diagonal Sum 2:  " + diagonalSum2);
-            Console.WriteLine("Absolute Sum: " + absoluteSum);
+            Console.WriteLine("Absolute Diagonal Difference: " + diagonalDifference);
 
             // Freezing the screen
             Console.ReadLine();
