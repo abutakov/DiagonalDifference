@@ -21,18 +21,21 @@ namespace DiagonalDifference
             string line;
             string filename = "matrix.txt";
             string path = Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory());
-
+           
             path = path.Substring(0, path.Length - 4) + "\\" + filename;
 
             StreamReader file = new StreamReader(path);
 
-            // Reading N-number (number of elements in each row/column)
+            // Reading 1st line, which is N-number (number of elements in each row/column)
             Int16 nElements = Convert.ToInt16(file.ReadLine());
+
             // Declaring N x N matrix 
             int[,] matrix = new int[nElements, nElements];
 
             // this array used as a delimeter in the future
             string[] tokens;
+            
+            // Reading file and initialing matrix
             for (int i = 0; i < nElements; i++)
             {
                 line = file.ReadLine();
@@ -44,11 +47,9 @@ namespace DiagonalDifference
                     matrix[i, j] = numbers[j];
                 }
             }
-            /*
-             * At this point we have our matrix fully initialized
-             */
+           
 
-            // Calculating diagonals 
+            // Calculating the diagonals 
             for(int i = 0, j = 0, k = nElements - 1; i < nElements; i++, j++, k--)
             {
                 diagonalSum1 += matrix[i, j];
@@ -61,7 +62,7 @@ namespace DiagonalDifference
             if (absoluteSum < 0)
                 absoluteSum = absoluteSum * (-1);
             
-            // Displaying Results
+            // Displaying the Results
             Console.WriteLine("Diagonal Sum 1:  " + diagonalSum1);
             Console.WriteLine("Diagonal Sum 2:  " + diagonalSum2);
             Console.WriteLine("Absolute Sum: " + absoluteSum);
