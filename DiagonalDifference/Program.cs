@@ -32,7 +32,7 @@ namespace DiagonalDifference
             // Declaring N x N matrix 
             int[,] matrix = new int[nElements, nElements];
 
-            // this array used as a delimeter in the future
+            // this array will be used as a delimeter in the future
             string[] tokens;
             
             // Reading file and initialing matrix
@@ -48,7 +48,6 @@ namespace DiagonalDifference
                 }
             }
            
-
             // Calculating the diagonals 
             for(int i = 0, j = 0, k = nElements - 1; i < nElements; i++, j++, k--)
             {
